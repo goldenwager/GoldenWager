@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoldenWager | Premium Sports Betting</title>
+    <style>
+        /* Base Styles & Premium Color Palette */
+        :root {
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --gold: #FFD700;
+            --gold-hover: #e6c200;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            background-color: #0a0a0a;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(rgba(18,18,18,0.8), rgba(18,18,18,0.9)), url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            background-color: var(--gold);
+            color: #000;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.2s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: var(--gold-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Today's Picks Section (Where you post bets) */
+        .picks-section {
+            padding: 80px 5%;
+            background-color: var(--bg-card);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--gold);
+        }
+
+        .bet-slip-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .bet-slip {
+            background-color: #2a2a2a;
+            border-left: 4px solid var(--gold);
+            padding: 20px;
+            width: 300px;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .bet-slip h3 {
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .odds {
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-weight: bold;
+            float: right;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            padding: 40px;
+            width: 350px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card.premium {
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+            position: relative;
+        }
+
+        .badge {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: var(--gold);
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 3rem;
+            margin: 20px 0;
+            color: var(--gold);
+        }
+
+        .card ul {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .card ul li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: '✓';
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Crypto Section */
+        .crypto-section {
+            background-color: var(--gold);
+            color: #000;
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .crypto-logos {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">GoldenWager</div>
+        <nav>
+            <a href="#picks">Daily Picks</a>
+            <a href="#pricing">VIP Access</a>
+            <a href="#login" class="btn" style="padding: 8px 20px;">Member Login</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Turn Your Passion into <span>Profit</span></h1>
+        <p>Join the most authentic and transparent sports betting community. Get exclusive access to professional, high-win-rate daily picks.</p>
+        <a href="#pricing" class="btn">Become a VIP Today</a>
+    </section>
+
+    <section id="picks" class="picks-section">
+        <h2 class="section-title">Today's Featured Picks</h2>
+        <p style="margin-bottom: 30px; color: var(--text-muted);">Sneak peek at what our VIPs are winning today. (Full card available to members)</p>
+        
+        <div class="bet-slip-container">
+            <div class="bet-slip">
+                <h3>Champions League <span class="odds">1.85</span></h3>
+                <p><strong>Match:</strong> Real Madrid vs. Man City</p>
+                <p><strong>Pick:</strong> Over 2.5 Goals</p>
+                <p style="color: #4CAF50; margin-top: 10px;">Status: Confidence 9/10</p>
+            </div>
+            <div class="bet-slip" style="opacity: 0.7; position: relative;">
+                <h3>NBA Premium Play <span class="odds">???</span></h3>
+                <p><strong>Match:</strong> VIP Exclusive</p>
+                <p><strong>Pick:</strong> Hidden</p>
+                <a href="#pricing" class="btn" style="margin-top: 15px; width: 100%; text-align: center; font-size: 0.9rem;">Unlock VIP to View</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing-section">
+        <h2 class="section-title">Choose Your Winning Plan</h2>
+        
+        <div class="pricing-cards">
+            <div class="card">
+                <h3>Monthly Pass</h3>
+                <div class="price">$25<span>/mo</span></div>
+                <ul>
+                    <li>Access to all daily VIP picks</li>
+                    <li>Bankroll management guide</li>
+                    <li>24/7 Member Support</li>
+                </ul>
+                <a href="#" class="btn" style="width: 100%;" onclick="alert('Redirecting to Crypto Payment Gateway...')">Subscribe Monthly</a>
+            </div>
+
+            <div class="card premium">
+                <div class="badge">BEST VALUE (Save $100)</div>
+                <h3>1-Year Legend Pass</h3>
+                <div class="price">$200<span>/yr</span></div>
+                <ul>
+                    <li><strong>Everything in Monthly, PLUS:</strong></li>
+                    <li>Direct messaging with head analyst</li>
+                    <li>Early access to high-value odds</li>
+                    <li>Exclusive high-roller picks</li>
+                </ul>
+                <a href="#" class="btn" style="width: 100%;" onclick="alert('Redirecting to Crypto Payment Gateway...')">Get 1 Year VIP</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="crypto-section">
+        <h2>🔒 100% Anonymous & Secure Payments</h2>
+        <p>We respect your privacy. All VIP subscriptions are processed securely via Cryptocurrency.</p>
+        <div class="crypto-logos">
+            Accepted here: Bitcoin (BTC) • Ethereum (ETH) • Solana (SOL) • USDT
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 GoldenWager. All rights reserved.</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">Disclaimer: GoldenWager is for informational and entertainment purposes only. Sports betting involves risk. Please gamble responsibly.</p>
+    </footer>
+
+</body>
+</html>
